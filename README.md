@@ -37,12 +37,37 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 /* write all the steps invloved */
 
 **PROGRAM**
+JK FLIPFLOP USING IF ELSE STATEMENT
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+module jk_ff (j, k, clk, rst, q);
+  input j, k, clk, rst;
+  output reg q;
+  always @(posedge clk or posedge rst) begin
+    if (rst)
+      q <= 0; // Reset the flip-flop
+    else if (j == 0 && k == 0)
+      q <= q; // No change
+    else if (j == 0 && k == 1)
+      q <= 0; // Reset
+    else if (j == 1 && k == 0)
+      q <= 1; // Set
+    else if (j == 1 && k == 1)
+      q <= ~q; // Toggle
+  end
+
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by:Vishvanandh N
+
+RegisterNumber:24005857
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+![WhatsApp Image 2024-12-20 at 20 00 26_69463ec2](https://github.com/user-attachments/assets/c89aa782-671a-4ff4-a71d-06030618dc8f)
+
+
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+![WhatsApp Image 2024-12-20 at 20 00 25_675284f3](https://github.com/user-attachments/assets/a1b22349-d640-4139-88e4-5b78c6b22997)
+
 **RESULTS**
+A JK Flip-Flop is a more advanced type of flip-flop compared to the SR flip-flop. It has two inputs, J and K, and a clock input.
